@@ -112,9 +112,14 @@ namespace ProAgil.Repository
                 .ThenInclude(x => x.Evento);
             }
 
-            query = query
-                .OrderBy(c => c.Nome)
-                .Where(x => x.Nome.ToLower().Contains(name.ToLower()));
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(x => x.Nome.ToLower().Contains(name.ToLower()));
+            }
+
+            query = query.OrderBy(c => c.Nome);
+
+
 
             return await query.AsNoTracking().ToListAsync();
         }

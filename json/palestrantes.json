@@ -1,0 +1,49 @@
+{
+	"Nome": "Wilson de Oliveira Junior",
+	"MiniCurriculo": "Maior pegador de menina da Vila Mariana",
+	"ImagemUrl": "img1.jpg",
+	"Telefone": "11-95555-4321",
+	"Email": "wilson.palestrante@hotmail.com",
+	"RedesSociais":[],
+	"PalestranteEventos":[]
+}
+
+
+
+{
+	"Nome": "Manuel de Oliveira",
+	"MiniCurriculo": "Profundo conhecedor das ortalicas de seu quintal",
+	"ImagemUrl": "img2.jpg",
+	"Telefone": "11-97777-4321",
+	"Email": "orta_do_manutel@hotmail.com",
+	"RedesSociais":[
+        {
+            "nome": "Twitter",
+            "url": "https://twitter.com"
+        },
+        {
+            "nome": "Instagram",
+            "url": "https://www.instagram.com/"
+        }
+    ],
+	"PalestranteEventos":[]
+}
+
+{
+	"Nome": "Dilma Ruseff",
+	"MiniCurriculo": "Profunda conhecedor da arte de ensacar vento",
+	"ImagemUrl": "img3.jpg",
+	"Telefone": "11-5432-4321",
+	"Email": "dilma.ruseff@hotmail.com",
+	"RedesSociais":[
+        {
+            "nome": "Twitter",
+            "url": "https://twitter.com"
+        },
+        {
+            "nome": "Instagram",
+            "url": "https://www.instagram.com/"
+        }
+    ],
+	"PalestranteEventos":[]
+}
