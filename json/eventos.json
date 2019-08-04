@@ -1,0 +1,95 @@
+{
+    "local": "Belo Horizonte",
+    "DataEvento": "#1/5/2019 8:30#",
+    "Tema": "Angular - Primeiros passos",
+    "QtdPessoas": 350,
+    "ImagemUrl": "img1.jpg",
+    "Telefone": "11-5432-4321",
+    "Email": "angular@eventos.com.br",
+    "Lotes": [],
+    "RedesSociais": [],
+    "PalestranteEventos": []
+}
+
+
+{
+    "local": "São Paulo",
+    "DataEvento": "#1/12/2019 8:30#",
+    "Tema": "Angular - Rotas",
+    "QtdPessoas": 250,
+    "ImagemUrl": "img2.jpg",
+    "Telefone": "11-5432-4433",
+    "Email": "angular@eventos.com.br",
+    "Lotes": [],
+    "RedesSociais": [],
+    "PalestranteEventos": []
+}
+
+
+
+{
+    "local": "Rio de Janeiro",
+    "DataEvento": "#1/19/2019 8:30#",
+    "Tema": "Angular - Componentes",
+    "QtdPessoas": 750,
+    "ImagemUrl": "img3.jpg",
+    "Telefone": "11-5432-4433",
+    "Email": "angular@eventos.com.br",
+    "Lotes": [
+        {
+            "nome": "1º Lote",
+            "preco": 100,
+            "dataInicio": null,
+            "dataFim": null,
+            "quantidade": 350
+        },
+        {
+            "nome": "2º Lote",
+            "preco": 150,
+            "dataInicio": null,
+            "dataFim": null,
+            "quantidade": 400
+        },
+    ],
+    "RedesSociais": [],
+    "PalestranteEventos": []
+}
+
+
+
+{
+    "local": "Brasilia",
+    "DataEvento": "#1/26/2019 8:30#",
+    "Tema": "Angular - Profissional",
+    "QtdPessoas": 750,
+    "ImagemUrl": "img4.jpg",
+    "Telefone": "11-5432-4433",
+    "Email": "angular@eventos.com.br",
+    "Lotes": [
+        {
+            "nome": "1º Lote",
+            "preco": 100,
+            "dataInicio": null,
+            "dataFim": null,
+            "quantidade": 350
+        },
+        {
+            "nome": "2º Lote",
+            "preco": 150,
+            "dataInicio": null,
+            "dataFim": null,
+            "quantidade": 400
+        },
+    ],
+    "RedesSociais": [
+        {
+            "nome": "Twitter",
+            "url": "https://twitter.com"
+        },
+        {
+            "nome": "Instagram",
+            "url": "https://www.instagram.com/"
+        }
+    ],
+    "PalestranteEventos": []
+}
