@@ -1,3 +1,5 @@
+using System.IO;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +36,34 @@ namespace ProAgil.WebAPI.Controllers
             catch (System.Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de Dados Falhou: {ex.Message}");
+            }
+        }
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> Upload()
+        {
+            try
+            {
+                if (Request.Form.Files.Count == 0)
+                {
+                    return BadRequest("O arquivo não foi enviado");
+                }
+
+                var file = Request.Form.Files[0];
+                var folderName = Path.Combine("Resources", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                fileName = fileName.Replace("\"", string.Empty).Replace(" ", string.Empty);
+                var fullPath = Path.Combine(pathToSave, fileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                return Ok(new { Salvo = true, FileName = fileName });
+            }
+            catch (System.Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Falha no upload: {ex.Message}");
             }
         }
 

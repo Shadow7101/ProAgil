@@ -24,6 +24,7 @@ export class EventosComponent implements OnInit {
   mostrarImagem = false;
   registerForm: FormGroup;
   novoRegistro = false;
+  file: File;
 
   constructor(
     private eventoService: EventoService,
@@ -150,5 +151,32 @@ export class EventosComponent implements OnInit {
         console.error(error);
         this.toastr.error(`Falha ao excluir! ${error}`, 'Erro!');
       });
+  }
+
+
+  OnFileChange(fileEvent: any): void {
+    if (!fileEvent.target.files || fileEvent.target.files.length == 0) {
+      return;
+    }
+    const reader = new FileReader();
+    this.file = fileEvent.target.files;
+    this.eventoService.Upload(fileEvent.target.files).subscribe((response: any) => {
+      // this.toastr.success('Enviado com sucesso!', 'Sucesso!');
+      console.log(response);
+      this.SetImageUrlValue(response.fileName);
+    }, error => {
+      console.error(error);
+      this.toastr.error(`Erro ao fazer upload! ${error.message}`, 'Erro!');
+    });
+  }
+
+  SetImageUrlValue(value: string) {
+    if (this.novoRegistro) {
+      this.evento = Object.assign({}, this.registerForm.value);
+    } else {
+      this.evento = Object.assign({ id: this.evento.id }, this.registerForm.value);
+    }
+    this.evento.imagemUrl = value;
+    this.registerForm.patchValue(this.evento);
   }
 }

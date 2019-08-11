@@ -5,7 +5,7 @@ import { Evento } from '../_models/Evento';
 
 @Injectable()
 export class EventoService {
-  baseUrl = 'http://localhost:5000/api/evento';
+  baseUrl = 'http://localhost:5000/api/Evento';
 
   constructor(private http: HttpClient) { }
 
@@ -33,4 +33,10 @@ export class EventoService {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
+  Upload(file: File) {
+    const fileToUpload = file[0] as File;
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    return this.http.post(`${this.baseUrl}/upload`, formData);
+  }
 }
