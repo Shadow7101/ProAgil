@@ -5,6 +5,7 @@ import { Evento } from '../_models/Evento';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { defineLocale, BsLocaleService, ptBrLocale } from 'ngx-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 defineLocale('pt-br', ptBrLocale);
 
 @Component({
@@ -13,6 +14,7 @@ defineLocale('pt-br', ptBrLocale);
   styleUrls: ['./eventos.component.css']
 })
 export class EventosComponent implements OnInit {
+  titulo = 'Eventos';
   _filtroLista: string;
   eventosFiltrados: Evento[];
   eventos: Evento[];
@@ -27,7 +29,8 @@ export class EventosComponent implements OnInit {
     private eventoService: EventoService,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private localeService: BsLocaleService) {
+    private localeService: BsLocaleService,
+    private toastr: ToastrService) {
     this.localeService.use('pt-br');
   }
 
@@ -55,9 +58,9 @@ export class EventosComponent implements OnInit {
       (eventos: Evento[]) => {
         this.eventos = eventos;
         this.eventosFiltrados = eventos;
-        console.log(eventos);
       }, error => {
         console.log(error);
+        this.toastr.error(`Erro ao carregar! ${error}`, 'Erro!');
       });
   }
 
@@ -111,7 +114,11 @@ export class EventosComponent implements OnInit {
           console.log(novoEvento);
           template.hide();
           this.getEventos();
-        }, error => console.error(error));
+          this.toastr.success('Salvo com sucesso!', 'Sucesso!');
+        }, error => {
+          console.error(error);
+          this.toastr.error(`Falha ao salvar! ${error}`, 'Erro!');
+        });
     }
     else {
       this.evento = Object.assign({ id: this.evento.id }, this.registerForm.value);
@@ -120,7 +127,11 @@ export class EventosComponent implements OnInit {
           console.log(novoEvento);
           template.hide();
           this.getEventos();
-        }, error => console.error(error));
+          this.toastr.success('Salvo com sucesso!', 'Sucesso!');
+        }, error => {
+          console.error(error);
+          this.toastr.error(`Falha ao salvar! ${error}`, 'Erro!');
+        });
     }
   }
 
@@ -134,6 +145,10 @@ export class EventosComponent implements OnInit {
       () => {
         this.getEventos();
         confirmeModal.hide();
-      }, error => console.error(error));
+        this.toastr.success('Excluído com sucesso!', 'Sucesso!');
+      }, error => {
+        console.error(error);
+        this.toastr.error(`Falha ao excluir! ${error}`, 'Erro!');
+      });
   }
 }
