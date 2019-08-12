@@ -57,6 +57,9 @@ export class EventosComponent implements OnInit {
   getEventos() {
     this.eventoService.getAllEvento().subscribe(
       (eventos: Evento[]) => {
+        eventos.forEach(evento => {
+          console.log(evento.dataEvento);
+        });
         this.eventos = eventos;
         this.eventosFiltrados = eventos;
       }, error => {

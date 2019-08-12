@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contatos',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatosComponent implements OnInit {
   titulo = 'Contatos';
+
   constructor() { }
 
   ngOnInit() {

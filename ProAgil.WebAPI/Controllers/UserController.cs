@@ -122,7 +122,7 @@ namespace ProAgil.WebAPI.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddHours(4),
+                Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = credentials
             };
             var tokenHandler = new JwtSecurityTokenHandler();

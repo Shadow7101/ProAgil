@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Evento } from '../_models/Evento';
 
 @Injectable()
 export class EventoService {
-  baseUrl = 'http://localhost:5000/api/Evento';
+  baseUrl = 'http://localhost:5000/api/evento';
+  headerToken: HttpHeaders;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    // this.headerToken = new HttpHeaders({ Authorization: `Bearer ${localStorage.getItem('token')}` });
+  }
+
+
 
   getAllEvento(): Observable<Evento[]> {
+    //    return this.http.get<Evento[]>(this.baseUrl, { headers: this.headerToken });
     return this.http.get<Evento[]>(this.baseUrl);
   }
 
