@@ -6,8 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // ngx-bootstrap
-import { BsDropdownModule, TooltipModule, ModalModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TooltipModule, ModalModule, BsDatepickerModule, TabsModule } from 'ngx-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import {NgxMaskModule} from 'ngx-mask';
+
 
 // application
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +28,7 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './guardaRotas/auth.guard.guard';
 import { AuthInterceptor } from './guardaRotas/evento.service';
+import { EventoEditComponent } from './eventos/evento-edit/evento-edit.component';
 
 @NgModule({
    declarations: [
@@ -39,6 +42,7 @@ import { AuthInterceptor } from './guardaRotas/evento.service';
       UserComponent,
       LoginComponent,
       RegistrationComponent,
+      EventoEditComponent,
       DateTimeFormatPipePipe
    ],
    imports: [
@@ -49,6 +53,8 @@ import { AuthInterceptor } from './guardaRotas/evento.service';
       TooltipModule.forRoot(),
       ModalModule.forRoot(),
       ToastrModule.forRoot({ timeOut: 3000, preventDuplicates: true, progressBar: true }),
+      TabsModule.forRoot(),
+      NgxMaskModule.forRoot(),
       AppRoutingModule,
       HttpClientModule,
       FormsModule,

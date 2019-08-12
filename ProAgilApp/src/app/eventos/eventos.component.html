@@ -28,7 +28,7 @@
       <th>Data</th>
       <th>Qtd Pessoas</th>
       <th>Lote</th>
-      <th>Opções</th>
+      <th colspan="2">Opções</th>
     </tr>
   </thead>
   <tbody *ngIf="eventosFiltrados && eventosFiltrados.length">
@@ -52,6 +52,11 @@
           <button class="btn btn-sm btn-danger" (click)="confirmeDelete(evento, confirmeModal)"> <i class="fa fa-eraser"
               tooltip="Excluir"></i> </button>
         </div>
+      </td>
+      <td>
+        <a tooltip="Edição detalhada" class="btn btn-sm btn-warning" [routerLink]="['/evento', evento.id ,'edit']"  >
+          <i class="fa fa-edit"></i>
+        </a>
       </td>
     </tr>
   </tbody>
